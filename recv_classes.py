@@ -1,9 +1,3 @@
-import re
-import sys
-import json
-from typing import Union
-from pymem.process import module_from_name
-
 __all__ = ['RecvTable', 'RecvProp', 'ClientClass']
 
 
@@ -12,21 +6,19 @@ class RecvProp:
         self._start_addr = start_addr
         self._handle = handle
 
-    def get_name(self) -> str:
+    def get_name(self):
         """Returns a name of the prop."""
         name_addr = self._handle.read_int(self._start_addr)
         return self._handle.read_string(name_addr, 128)
 
-    def get_offset(self) -> int:
+    def get_offset(self):
         """Returns an offset of the prop."""
         return self._handle.read_int(self._start_addr + 0x2C)
 
-    def get_data_table(self) -> "RecvTable":
+    def get_data_table(self):
         """Returns a data table for the prop."""
         return RecvTable(
-            self._handle.read_int(self._start_addr + 0x28),
-            self._handle
-        )
+            self._handle.read_int(self._start_addr + 0x28),self._handle)
 
 
 class RecvTable:
@@ -34,12 +26,12 @@ class RecvTable:
         self._start_addr = start_addr
         self._handle = handle
 
-    def get_table_name(self) -> str:
+    def get_table_name(self):
         """Returns a table's name."""
         name_addr = self._handle.read_int(self._start_addr + 0xC)
         return self._handle.read_string(name_addr, 128)
 
-    def get_max_props(self) -> int:
+    def get_max_props(self):
         """Returns prop's count in a table."""
         return self._handle.read_int(self._start_addr + 0x4)
 
@@ -57,14 +49,14 @@ class ClientClass:
         self._start_addr = start_addr
         self._handle = handle
 
-    def get_next_class(self) -> "ClientClass":
+    def get_next_class(self):
         """Returns next client class."""
         return self.__class__(
             self._handle.read_int(self._start_addr + 0x10),
             self._handle
         )
 
-    def get_table(self) -> RecvTable:
+    def get_table(self):
         """Returns client class' table."""
         return RecvTable(
             self._handle.read_int(self._start_addr + 0xC),

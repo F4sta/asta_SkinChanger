@@ -3,7 +3,7 @@ import io
 import os
 import json
 
-SteamFolder = open("SteamFolder.cfg", "r", encoding="utf-8").readline()
+SteamFolder = open("Config/SteamFolder.cfg", "r", encoding="utf-8").readline()
 
 def dump_skinId() :
     

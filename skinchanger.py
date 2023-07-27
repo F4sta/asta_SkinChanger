@@ -1,32 +1,36 @@
-''' Updating offsets '''
+''' Updating offsets and Skin collection '''
 import offsets_dumper
 offsets_dumper.update_offsets()
 try:from offsets import *
 except:offsets_dumper.update_offsets();from offsets import *
+from skinDumper import save;save()
+from helper import BoolenConfig
 
 ''' Getting Config '''
 from configparser import ConfigParser
 c = ConfigParser()
-c.read("Config/Custom1.ini")
-autoupdate = c["Skinchanger"]["autoupdate"]
-if autoupdate == "True": autoupdate = True
-else: autoupdate = False
+DEF_CONFIGFILE = "Config1"
+cur_configfile = DEF_CONFIGFILE
+c.read(f"Config/{cur_configfile}.ini")
 
 ''' Importing Libraries '''
-from keyboard import is_pressed
+from helper import *
 from time import sleep
 from pymem import *
+
+def updateConfig():
+    global cur_configfile
+    with open("Config/current_config.txt") as file:
+        cur_configfile = file.readline()
+        c.read(f"Config/{cur_configfile}.ini")
+    
 
 def GetWeaponConfig(WeaponName):
     paint = int(c["Skins"][WeaponName])
     Float = float(c["Float"][WeaponName])
-    if 0 >= Float >= 1:Float = 0.0000001
     Seed = int(c["Seed"][WeaponName])
-    Stattrak = c["Stattrak"][WeaponName]
-    if Stattrak == "True": Stattrak = True
-    else:Stattrak = False
+    Stattrak = BoolenConfig(c["Stattrak"][WeaponName])
     Stattrak_value = int(c["StattrakValue"][WeaponName] )
-    if 0 >= Stattrak_value >= 1000000:Stattrak_value = 69
         
     return paint, Float, Seed, Stattrak, Stattrak_value
 
@@ -69,42 +73,38 @@ def main():
     while run:
         sleep(0.00002)
         
-        #F6 : Force update config
-        if is_pressed( "f6" ):
-            c.read("Config/Custom1.ini")
-            pm.write_int(pm.read_uint( engine + dwClientState ) + 0x174, -1)
-        
-            localPlayer = pm.read_uint( client + dwLocalPlayer )
-            #local player weapon iteration
-            for i in range( 0, 8 ):
-                weapons =  pm.read_uint( localPlayer + m_hMyWeapons + (i - 1) * 0x4 ) & 0xFFF
-                weapon_address = pm.read_uint( client + dwEntityList + (weapons - 1) * 0x10 )
-                # checking if weaopon is valid
-                if not weapon_address:
-                    continue
-                WeaponName = IdentifyWeapon(pm.read_short( weapon_address + m_iItemDefinitionIndex ))        
-                if WeaponName != None:
-                    #Store specific weapons config
-                    paint, Float, Seed, Stattrak, Stattrak_value = GetWeaponConfig(WeaponName)
-                    
-                    #force weapon to use fallback values
-                    pm.write_int( weapon_address + m_iItemIDHigh, -1 )
-                    
-                    pm.write_int( weapon_address + m_nFallbackPaintKit, paint)
-                    pm.write_float( weapon_address + m_flFallbackWear, Float )
-                    pm.write_int( weapon_address + m_nFallbackSeed, Seed )
-                    
-                    if Stattrak:
-                        weapon_owner = pm.read_int( weapon_address + m_OriginalOwnerXuidLow )
-                        pm.write_int( weapon_address + m_iAccountID, weapon_owner )
-                        pm.write_int( weapon_address + m_nFallbackStatTrak, Stattrak_value )
-                    
-                    #Checks if the skinchanger needs to update
-                    shouldUpdate = [ pm.read_int( weapon_address + m_nFallbackPaintKit ) != paint,
-                                    pm.read_int( weapon_address + m_nFallbackSeed) != Seed ]
-                    if autoupdate and any(shouldUpdate):
-                        pm.write_int(pm.read_uint( engine + dwClientState ) + 0x174, -1)
-
+        updateConfig()
+        localPlayer = pm.read_uint( client + dwLocalPlayer )
+        #local player weapon iteration
+        for i in range( 0, 8 ):
+            weapons =pm.read_uint( localPlayer + m_hMyWeapons + (i - 1) * 0x4 ) & 0xFFF
+            weapon_address = pm.read_uint( client + dwEntityList + (weapons - 1) * 0x10 )
+            # checking if weaopon is valid
+            if not weapon_address:
+                continue
+            WeaponName = IdentifyWeapon(pm.read_short( weapon_address + m_iItemDefinitionIndex ))        
+            if WeaponName != None:
+                #Store specific weapons config
+                paint, Float, Seed, Stattrak, Stattrak_value = GetWeaponConfig(WeaponName)
+                
+                #Checks if the skinchanger needs to update
+                shouldUpdate = [ pm.read_int( weapon_address + m_nFallbackPaintKit ) != paint,
+                                pm.read_int( weapon_address + m_nFallbackSeed) != Seed ]
+                
+                #force weapon to use fallback values
+                pm.write_int( weapon_address + m_iItemIDHigh, -1 )
+                
+                pm.write_int( weapon_address + m_nFallbackPaintKit, paint)
+                pm.write_float( weapon_address + m_flFallbackWear, Float )
+                pm.write_int( weapon_address + m_nFallbackSeed, Seed )
+                
+                if Stattrak:
+                    weapon_owner = pm.read_int( weapon_address + m_OriginalOwnerXuidLow )
+                    pm.write_int( weapon_address + m_iAccountID, weapon_owner )
+                    pm.write_int( weapon_address + m_nFallbackStatTrak, Stattrak_value )
+                
+                if any(shouldUpdate):
+                    pm.write_int(pm.read_uint( engine + dwClientState ) + 0x174, -1)
 
 if __name__ == '__main__':
     main()
