@@ -2,8 +2,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger">
+    <img src="Images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Asta's Skinchanger</h3>
@@ -55,7 +55,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<p align="center">Ak47 - Dragon Lore</p>
+<p align="center">The skinchanger let you use any skin on any weapon, but not every one of them work well!</p>
+<p align="center"><img src="Images/reference_image.png" alt="ref_image" style="width: 50%; height: 50%; al"></img></p>
 
 My skinchager is translated from a c++ cheat that made by youtuber cazz into python. The cheat is work with R/W (Read/Write), this method changes memory values in csgo. The cheat was writen in python 3.11 . After csgo update the skinchanger may not work because everytime the csgo updates the offsets we work with are changes, it will only work if the offsets is up to date.
 
@@ -84,16 +86,13 @@ These cheats are called "external" because they run outside the game's official 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+Python 3.11
+  Libraries:
+      * [https://github.com/hoffstadt/DearPyGui]DearPyGui
+      * [https://pypi.org/project/configparser/]ConfigParser
+      * [https://pypi.org/project/Pymem/]Pymem
+      * [https://docs.python.org/3/library/json.html#]Json
+      * [https://pypi.org/project/requests/]Requests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,10 +106,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
+Windows:
+* Python
+  ```
+  Download Python 3.11, and check pip in the custom installation.
   ```
 
 ### Installation
@@ -198,7 +197,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: Images/reference_image.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
