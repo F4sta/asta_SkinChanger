@@ -192,6 +192,7 @@ Use this space to list resources you find helpful and would like to give credit 
 
 * [Cazz's Video - C++ Skin changer](https://choosealicense.com)
 * [Cazz's Github](https://github.com/cazzwastaken)
+* [Othneildrew's template](https://github.com/othneildrew/Best-README-Template)
 * [DearPyGui official Guide Video](https://youtube.com/playlist?list=PLcqt7R3y3elGh7zoj1-oyygzTh9j81hKV)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
