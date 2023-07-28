@@ -105,17 +105,18 @@ def dump_skinId() :
 
     return skin_dict, ["Original"]+skin_list
 
-def save():
+def save(skindict : bool = True, skinnames : bool = False):
     skin_dict , skin_names = dump_skinId()
 
     skin_dict_json = json.dumps(skin_dict, indent=4)
     skin_names_json = json.dumps(skin_names, indent=4)
 
-    with open("skin_dict.json", "w", encoding="utf-8") as skin_dict_json_file:
-        skin_dict_json_file.writelines(skin_dict_json)
-        
-    with open("skin_names.json", "w", encoding="utf-8") as skin_names_json_file:
-        skin_names_json_file.writelines(skin_names_json)
+    if skindict:
+        with open("skin_dict.json", "w", encoding="utf-8") as skin_dict_json_file:
+            skin_dict_json_file.writelines(skin_dict_json)
+    if skinnames:
+        with open("skin_names.json", "w", encoding="utf-8") as skin_names_json_file:
+            skin_names_json_file.writelines(skin_names_json)
 
 if __name__ == "__main__":
     save()

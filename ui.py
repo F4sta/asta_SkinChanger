@@ -137,16 +137,20 @@ def main():
     dpg.create_context()
     dpg.create_viewport()
     dpg.setup_dearpygui()
+    
+    ICON="Images/logo.ico"
 
-    with dpg.window(label="Main", tag="Main"):
+    with dpg.window(label="Main", tag="Main", width=500, height=350):
         
         #Setting the main window
-        dpg.set_primary_window("Main", True)
-        dpg.set_viewport_max_width(500)
-        dpg.set_viewport_max_height(350)
+        #dpg.set_primary_window("Main", True)
+        dpg.set_viewport_max_width(1400) #500
+        dpg.set_viewport_max_height(700) #350
         dpg.set_viewport_pos([(screenwidth/2-200), (screenheight/2-150)])
-        dpg.set_viewport_resizable(False)
+        #dpg.set_viewport_resizable(False)
         dpg.set_viewport_title("asta's Skinschanger")
+        dpg.set_viewport_large_icon(ICON)
+        dpg.set_viewport_small_icon(ICON)
         
         with dpg.tab_bar(tag="MainTab"):
             with dpg.tab(label="Rifles"):
@@ -213,6 +217,17 @@ def main():
                             with dpg.table_row():dpg.add_text("Menu")
                             with dpg.table_row():dpg.add_separator()
 
+    with dpg.theme() as global_theme:
+
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 3, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_style(dpg.mvStyleVar_ScrollbarSize, 16, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_style(dpg.mvStyleVar_ScrollbarRounding, 3, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_style(dpg.mvStyleVar_TabRounding, 3, category=dpg.mvThemeCat_Core)
+
+    dpg.bind_theme(global_theme)
+
+    dpg.show_style_editor()
 
     dpg.show_viewport()
     while dpg.is_dearpygui_running():
