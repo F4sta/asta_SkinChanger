@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger">
+  <a href="https://github.com/F4sta/asta_SkinChanger">
     <img src="Images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -179,7 +179,7 @@ Steam   : [asta](https://steamcommunity.com/id/asta_locsos)
 
 Discord : Krist..
 
-Project Link: [https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger](https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger)
+Project Link: [https://github.com/F4sta/asta_SkinChanger](https://github.com/F4sta/asta_SkinChanger)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
