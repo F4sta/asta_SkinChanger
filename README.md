@@ -63,6 +63,8 @@ My skinchager is translated from a c++ cheat that made by youtuber cazz into pyt
 * Offsets from Hazedumper github page
 * Ui made with DearPyGui alias the python version of Imgui
 * External cheat, no needed injection
+* Live update config file
+* Live update skins/paintkits
 
 <h3> What does R/W stands for in proggraming? </h3>
 
