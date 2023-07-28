@@ -86,13 +86,13 @@ These cheats are called "external" because they run outside the game's official 
 
 ### Built With
 
-Python 3.11
-  Libraries:
-      * [https://github.com/hoffstadt/DearPyGui]DearPyGui
-      * [https://pypi.org/project/configparser/]ConfigParser
-      * [https://pypi.org/project/Pymem/]Pymem
-      * [https://docs.python.org/3/library/json.html#]Json
-      * [https://pypi.org/project/requests/]Requests
+1. ![python-logo](Images/python20x20.png) Python 3.11.4 [download](https://www.python.org/downloads/release/python-3114)
+2. Libraries:
+    * [DearPyGui](https://github.com/hoffstadt/DearPyGui)
+    * [ConfigParser](https://pypi.org/project/configparser/)
+    * [Pymem](https://pypi.org/project/Pymem/)
+    * [Json](https://docs.python.org/3/library/json.html#)
+    * [Requests](https://pypi.org/project/requests/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,31 +101,36 @@ Python 3.11
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This field will be filled when all the file sorted in folders.
 
 ### Prerequisites
 
 Windows:
-* Python
-  ```
-  Download Python 3.11, and check pip in the custom installation.
-  ```
+  * Download Python 3.11, and install in customize installation, check all as below:
+
+
+</br>
+<img src="Images/install_image.png" alt="inst_img" style="width: 40%; height: 40%; al"><img>
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+1. Install all python library:
+   ```pip
+   pip install -r requirements.txt
    ```
-3. Install NPM packages
+   or
+   ```pip
+   pythonpip install -r requirements.txt
+   ```
+3. Set steam location in SkinFolder.cfg in format as below (example: default folder):
+   ```
+   C:\Program Files (x86)\Steam
+   ```
+4. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+5. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
