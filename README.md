@@ -11,9 +11,7 @@
   <p align="center">
     CS:GO Skinchanger made by asta with Python 3.11
     <br />
-    Readme made with otheneildrew' template
-    <br />
-    <a href=""><strong>Explore the docs »</strong></a>
+    Readme made with otheneildrew's template
     <br />
     <br />
     <a href="">View Demo</a>
