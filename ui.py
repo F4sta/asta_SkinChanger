@@ -7,9 +7,9 @@ from helper import *
 from time import sleep
 from configparser import ConfigParser
 import pymem
-from offsets import dwClientState
+''' from offsets import dwClientState
 
-''' csgo_initialize  =  False
+csgo_initialize  =  False
 while not csgo_initialize:
     try:
         pm = pymem.Pymem( "csgo.exe" )
