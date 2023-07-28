@@ -127,7 +127,14 @@ Windows:
    ```bash
    py main.py
    ```
+</br>
+On run it will create/update :
 
+  * offsets.py
+  * skin_dict.json
+  * skin_names.json (That' not an important file btw)
+
+</br>
 If the command line doesn't recognize "py" launcher then you should modify your python installation and add py launcher.
 
 If you have another python version already installed then use:
