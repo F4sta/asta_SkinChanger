@@ -45,6 +45,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href="#about-me">About Me</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -160,12 +161,24 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 
+<!-- ABOUTME -->
+## About Me
+
+Name: Asta
+
+  * Age: 17
+  * Intrests: Programming, Games
+  * Main Language: Python and Hungarian (:
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTACT -->
 ## Contact
 
-####asta
-
 Steam   : [asta](https://steamcommunity.com/id/asta_locsos)
+
 Discord : Krist..
 
 Project Link: [https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger](https://github.com/F4sta/asta-s-Python-CS-GO-Skinchanger)
