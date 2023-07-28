@@ -57,16 +57,26 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+My skinchager is translated from a c++ cheat that made by youtuber cazz into python. The cheat is work with R/W (Read/Write), this method changes memory values in csgo. The cheat was writen in python 3.11 . After csgo update the skinchanger may not work because everytime the csgo updates the offsets we work with are changes, it will only work if the offsets is up to date.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* Offsets from Hazedumper github page
+* Ui made with DearPyGui alias the python version of Imgui
+* External cheat, no needed injection
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+<h3> What does R/W stands for in proggraming? </h3>
 
-Use the `BLANK_README.md` to get started.
+In programming, "R/W" stands for "Read/Write." It refers to the capability of a variable, file, or memory location to be both read from (accessed) and written to (modified or updated). It is a fundamental concept in computer programming and plays a crucial role in manipulating data and maintaining state in programs.
+
+
+<h3> What is an offset? </h3>
+
+In computing and programming, an offset refers to a displacement or shift from a reference point. It is used to locate or access data in memory or within data structures. 
+
+
+<h3> What is an External cheat? </h3>
+
+These cheats are called "external" because they run outside the game's official code and are typically created by external developers who reverse-engineer the game or exploit vulnerabilities to gain an advantage. External cheats are considered unethical and are often in violation of the game's terms of service. Their usage can lead to negative consequences, such as being banned from the game or the game's online services.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,41 +141,6 @@ _Below is an example of how you can instruct your audience on installing and set
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
