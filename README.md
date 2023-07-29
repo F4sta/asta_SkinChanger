@@ -18,9 +18,9 @@
     <br />
     <a href="">View Demo</a>
     ·
-    <a href="https://github.com/F4sta/aStaKins/issues">Report Bug</a>
+    <a href="https://github.com/F4sta/asta_SkinChanger/issues">Report Bug</a>
     ·
-    <a href="https://github.com/F4sta/aStaKins/issues">Request Feature</a>
+    <a href="https://github.com/F4sta/asta_SkinChanger/pulls/">Request Feature</a>
   </p>
 </div>
 
@@ -121,7 +121,7 @@ Windows:
    ```bash
    pip install -r requirements.txt
    ```
-3. Set steam location in SkinFolder.cfg in format as below (example: default folder):
+3. Set steam location in SkinFolder.cfg in format as below:
    ```
    C:\Program Files (x86)\Steam
    ```
@@ -176,7 +176,7 @@ Name: Asta
 
   * Age: 17
   * Intrests: Programming, Games
-  * Main Language: Python and Hungarian (:
+  * Languages: Python and Hungarian (:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
