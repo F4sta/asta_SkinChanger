@@ -6,7 +6,6 @@ screenwidth, screenheight = user32.GetSystemMetrics(0), user32.GetSystemMetrics(
 from utils.helper import *
 from time import sleep
 from configparser import ConfigParser
-import pymem
 
 c = ConfigParser()
 while True:
@@ -30,6 +29,8 @@ def getIdByPaintkit(paintkit):
 def getPaintkitById(Id):
     return reverse_skin_dict[f"{Id}"]
 
+ICON="Images/logo.ico"
+TITLE="asta's Skinschanger"
 #Default Variables
 DEF_WEAPON = WEAPONS[0]
 DEF_PAINTID = skin_IDs[0]
@@ -51,7 +52,7 @@ cur_stattrak_value = DEF_STATTRAK_VALUE
 ''' Config functions '''
 
 def updateConfig():
-    global cur_paintkit, cur_float, cur_seed,cur_stattrak, cur_stattrak_value, cur_paintID
+    global cur_paintkit, cur_float, cur_seed, cur_stattrak, cur_stattrak_value, cur_paintID, cur_weapon
     with open("Config/current_config.txt") as file:
         cur_configfile = file.readline()
         c.read(f"Config/{cur_configfile}.ini")
@@ -76,7 +77,7 @@ def saveConfig():
     global cur_weapon
     #Weapon Config
     c["Skins"][cur_weapon] = str(getIdByPaintkit(dpg.get_value("paintkit_value")))
-    float_ = dpg.get_value("Float_value")
+    float_ = dpg.get_value("float_value")
     float_ = "{:.6f}".format(float_)
     if float_ == "1e-06":
         float_ = "0.000001"
@@ -91,33 +92,33 @@ def saveConfig():
 def setValues():
     global cur_paintID, cur_float, cur_seed, cur_stattrak, cur_stattrak_value, cur_paintkit
     updateConfig()
-    dpg.set_value("paintkit_search", cur_paintkit)
     dpg.set_value("paintkit_value", cur_paintkit)
-    dpg.set_value("Float_value", cur_float)
+    dpg.set_value("paintkit_search", "")
+    dpg.set_value("paintkit_text", f"Selected: {cur_paintkit}")
+    dpg.set_value("float_value", cur_float)
     dpg.set_value("seed_value", cur_seed)
     dpg.set_value("stattrak_bool", cur_stattrak)
     dpg.set_value("stattrak_value", cur_stattrak_value)
-
+    
 ''' Callbacks functions '''
-def currentWeaponCallback(Sender):
-    global cur_weapon, cur_configfile
-    weapon = str(dpg.get_value(Sender))
-    cur_weapon = weapon
+def currentWeaponCallback():
+    global cur_weapon
+    cur_weapon = str(dpg.get_value("WEAPONS"))
+    updateConfig()
     setValues()
 
-def paintkit_input_callback():
-    paintkit_input = str(dpg.get_value("paintkit_search"))
-    if paintkit_input != "":
+def paintkit_search_callback():
+    paintkit_search = str(dpg.get_value("paintkit_search"))
+    if paintkit_search != "":
         temp_skinnames = [] 
         for i in skin_names:
-            if paintkit_input.lower() in str(i).lower():
+            if paintkit_search.lower() in str(i).lower():
                 temp_skinnames.append(i)
             if i == skin_names[-1]:
                 dpg.configure_item("paintkit_value", items=temp_skinnames)
     else:
         temp_skinnames = skin_names
         dpg.configure_item("paintkit_value", items=temp_skinnames)
-    saveConfig()
 
 def ChangeConfig(NextPrev : str):
     global cur_configfile
@@ -141,8 +142,7 @@ def ChangeConfig(NextPrev : str):
             file.write(cur_configfile)
         dpg.set_value("config_text", f"Config: {cur_configfile}")
         setValues()
-        paintkit_input_callback()
-        
+        paintkit_search_callback()
 
 def clearAllConfig():
     for i in range(1, 10):
@@ -151,12 +151,14 @@ def clearAllConfig():
             with open(fileName, "w") as file:
                 file.write(def_file.read())
     setValues()
+    user32.MessageBoxW(None, "All config has been cleared", TITLE, 0x0)
                 
 def clearConfig(id):
     with open("Config/DefaultConfig.ini", "r") as def_file:
         fileName = f"Config/Config{id}.ini"
         with open(fileName, "w") as file:
             file.write(def_file.read())
+    user32.MessageBoxW(None, f"Config{id}.ini has been cleared", TITLE, 0x0)
     setValues()
 
 
@@ -166,8 +168,6 @@ def main():
     dpg.create_context()
     dpg.create_viewport()
     dpg.setup_dearpygui()
-    
-    ICON="Images/logo.ico"
 
     with dpg.window(label="Main", tag="Main"):
         
@@ -176,9 +176,9 @@ def main():
         dpg.set_primary_window("Main", True)
         dpg.set_viewport_max_width(WIDTH)
         dpg.set_viewport_max_height(HEIGHT)
-        dpg.set_viewport_pos([(screenwidth/2-WIDTH), (screenheight/2-HEIGHT)])
+        dpg.set_viewport_pos([(screenwidth/2-WIDTH/2), (screenheight/2-HEIGHT/2)])
         dpg.set_viewport_resizable(False)
-        dpg.set_viewport_title("asta's Skinschanger")
+        dpg.set_viewport_title(TITLE)
         dpg.set_viewport_large_icon(ICON)
         dpg.set_viewport_small_icon(ICON)
         
@@ -198,7 +198,7 @@ def main():
                             #Float Input
                             with dpg.table_row():dpg.add_text("Float")
                             with dpg.table_row():
-                                dpg.add_input_float(tag="Float_value", min_value=0.000001, max_value=0.999999,
+                                dpg.add_input_float(tag="float_value", min_value=0.000001, max_value=0.999999,
                                                     step=0.1, min_clamped=True, max_clamped=True,
                                                     format='%.6f', default_value=cur_seed,
                                                     callback=saveConfig,
@@ -233,14 +233,14 @@ def main():
                         
                         with dpg.table(header_row=False):
                             dpg.add_table_column()
-                            with dpg.table_row():dpg.add_text("Paintkits")
+                            with dpg.table_row():dpg.add_text(tag="paintkit_text", label=f"Selected: {cur_paintkit}")
                             with dpg.table_row():
                                 with dpg.table(header_row=False):
                                     dpg.add_table_column(width=20, width_fixed=True)
                                     dpg.add_table_column(width=210, width_stretch=True)
                                     with dpg.table_row():
                                         dpg.add_text("Seachbar: ")
-                                        dpg.add_input_text(tag="paintkit_search", callback=paintkit_input_callback, width=210)
+                                        dpg.add_input_text(tag="paintkit_search", callback=paintkit_search_callback, width=210)
                                         
                             with dpg.table_row():dpg.add_listbox(tag="paintkit_value", items=skin_names, default_value=cur_paintkit,
                                                     callback=saveConfig, num_items=12, width=230)
