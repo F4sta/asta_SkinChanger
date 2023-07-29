@@ -18,9 +18,9 @@
     <br />
     <a href="">View Demo</a>
     ·
-    <a href="https://github.com/F4sta/aStaKins/issues">Report Bug</a>
+    <a href="https://github.com/F4sta/asta_SkinChanger/issues">Report Bug</a>
     ·
-    <a href="https://github.com/F4sta/aStaKins/issues">Request Feature</a>
+    <a href="https://github.com/F4sta/asta_SkinChanger/pulls/">Request Feature</a>
   </p>
 </div>
 
