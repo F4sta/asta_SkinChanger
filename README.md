@@ -176,7 +176,7 @@ Name: Asta
 
   * Age: 17
   * Intrests: Programming, Games
-  * Main Language: Python and Hungarian (:
+  * Languages: Python and Hungarian (:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
