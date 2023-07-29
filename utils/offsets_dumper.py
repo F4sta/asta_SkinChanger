@@ -6,7 +6,7 @@ def update_offsets():
     x = r.text
     x = x.split(";")
     i = 0
-    path = os.path.join("offsets.py")
+    path = os.path.join("utils/offsets.py")
     f = open(path, "w")
     for line in x:
         if i <=4:

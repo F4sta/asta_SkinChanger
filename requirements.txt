@@ -1,4 +1,4 @@
-
+dearpygui==1.8.0
 dearpygui==1.9.1
 Pymem==1.12.0
 Requests==2.31.0

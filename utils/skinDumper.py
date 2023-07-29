@@ -112,10 +112,10 @@ def save(skindict : bool = True, skinnames : bool = False):
     skin_names_json = json.dumps(skin_names, indent=4)
 
     if skindict:
-        with open("skin_dict.json", "w", encoding="utf-8") as skin_dict_json_file:
+        with open("utils/skin_dict.json", "w", encoding="utf-8") as skin_dict_json_file:
             skin_dict_json_file.writelines(skin_dict_json)
     if skinnames:
-        with open("skin_names.json", "w", encoding="utf-8") as skin_names_json_file:
+        with open("utils/skin_names.json", "w", encoding="utf-8") as skin_names_json_file:
             skin_names_json_file.writelines(skin_names_json)
 
 if __name__ == "__main__":

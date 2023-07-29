@@ -1,10 +1,15 @@
 ''' Updating offsets and Skin collection '''
-import offsets_dumper
-offsets_dumper.update_offsets()
-try:from offsets import *
-except:offsets_dumper.update_offsets();from offsets import *
-from skinDumper import save;save()
-from helper import BoolenConfig
+import os
+cwd = os.getcwd()
+print("Th Current working directory is: {0}".format(cwd))
+
+from utils.offsets_dumper import update_offsets; update_offsets()
+try:
+    from utils.offsets import *
+except:
+    update_offsets()
+    from utils.offsets import *
+from utils.skinDumper import save;save()
 
 ''' Getting Config '''
 from configparser import ConfigParser
@@ -14,9 +19,14 @@ cur_configfile = DEF_CONFIGFILE
 c.read(f"Config/{cur_configfile}.ini")
 
 ''' Importing Libraries '''
-from helper import *
+from utils.helper import *
 from time import sleep
 from pymem import *
+from threading import Thread
+
+''' Starting Ui '''
+import utils.ui as ui
+ui = Thread(target=ui.main).start()
 
 def updateConfig():
     global cur_configfile
