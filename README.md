@@ -121,7 +121,7 @@ Windows:
    ```bash
    pip install -r requirements.txt
    ```
-3. Set steam location in SkinFolder.cfg in format as below (example: default folder):
+3. Set steam location in SkinFolder.cfg in format as below:
    ```
    C:\Program Files (x86)\Steam
    ```
