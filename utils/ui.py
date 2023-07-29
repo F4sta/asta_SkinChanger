@@ -7,6 +7,10 @@ from utils.helper import *
 from time import sleep
 from configparser import ConfigParser
 
+#   Author: asta
+#   Version: 3.1
+#   Date: 2023.07.29
+
 c = ConfigParser()
 while True:
     try:
