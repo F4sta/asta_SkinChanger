@@ -28,14 +28,11 @@ from threading import Thread
 import utils.ui as ui
 ui = Thread(target=ui.main).start()
 
-def updateConfig():
+def GetWeaponConfig(WeaponName):
     global cur_configfile
     with open("Config/current_config.txt") as file:
         cur_configfile = file.readline()
         c.read(f"Config/{cur_configfile}.ini")
-    
-
-def GetWeaponConfig(WeaponName):
     paint = int(c["Skins"][WeaponName])
     Float = float(c["Float"][WeaponName])
     Seed = int(c["Seed"][WeaponName])
@@ -83,16 +80,17 @@ def main():
     while run:
         sleep(0.00002)
         
-        updateConfig()
         localPlayer = pm.read_uint( client + dwLocalPlayer )
         #local player weapon iteration
         for i in range( 0, 8 ):
-            weapons =pm.read_uint( localPlayer + m_hMyWeapons + (i - 1) * 0x4 ) & 0xFFF
-            weapon_address = pm.read_uint( client + dwEntityList + (weapons - 1) * 0x10 )
+            weapon = pm.read_uint( localPlayer + m_hMyWeapons + (i - 1) * 0x4 ) & 0xFFF
+            weapon_address = pm.read_uint( client + dwEntityList + (weapon - 1) * 0x10 )
             # checking if weaopon is valid
             if not weapon_address:
                 continue
-            WeaponName = IdentifyWeapon(pm.read_short( weapon_address + m_iItemDefinitionIndex ))        
+            weaponIndex = pm.read_short( weapon_address + m_iItemDefinitionIndex )
+            
+            WeaponName = IdentifyWeapon(weaponIndex)        
             if WeaponName != None:
                 #Store specific weapons config
                 paint, Float, Seed, Stattrak, Stattrak_value = GetWeaponConfig(WeaponName)
