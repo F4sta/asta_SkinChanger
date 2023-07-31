@@ -187,8 +187,7 @@ Name: Asta
 
 Steam   : [asta](https://steamcommunity.com/id/asta_locsos)
 
-Discord : Krist..
-
+Discord : krist.
 Project Link: [https://github.com/F4sta/asta_SkinChanger](https://github.com/F4sta/asta_SkinChanger)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
