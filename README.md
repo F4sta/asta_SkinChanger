@@ -36,18 +36,9 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#installation">Installation</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#about-me">About Me</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -60,28 +51,12 @@
 <p align="center">The skinchanger let you use any skin on any weapon, but not every one of them work well!</p>
 <p align="center"><img src="Images/reference_image.png" alt="ref_image" style="width: 50%; height: 50%; al"></img></p>
 
-My skinchager is translated from a c++ cheat that made by youtuber cazz into python. The cheat is work with R/W (Read/Write), this method changes memory values in csgo. The cheat was writen in python 3.11 . After csgo update the skinchanger may not work because everytime the csgo updates the offsets we work with are changes, it will only work if the offsets is up to date.
-
+Skinchager is translated from a c++ cheat that made by youtuber cazz into python.
 * Offsets from Hazedumper github page
 * Ui made with DearPyGui alias the python version of Imgui
 * External cheat, no needed injection
 * Live update config file
 * Live update skins/paintkits
-
-<h3> What does R/W stands for in proggraming? </h3>
-
-In programming, "R/W" stands for "Read/Write." It refers to the capability of a variable, file, or memory location to be both read from (accessed) and written to (modified or updated). It is a fundamental concept in computer programming and plays a crucial role in manipulating data and maintaining state in programs.
-
-
-<h3> What is an offset? </h3>
-
-In computing and programming, an offset refers to a displacement or shift from a reference point. It is used to locate or access data in memory or within data structures. 
-
-
-<h3> What is an External cheat? </h3>
-
-These cheats are called "external" because they run outside the game's official code and are typically created by external developers who reverse-engineer the game or exploit vulnerabilities to gain an advantage. External cheats are considered unethical and are often in violation of the game's terms of service. Their usage can lead to negative consequences, such as being banned from the game or the game's online services.
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,22 +74,6 @@ These cheats are called "external" because they run outside the game's official 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This field will be filled when all the file sorted in folders.
-
-### Prerequisites
-
-Windows:
-  * Download Python 3.11, and install in customize installation, check all as below:
-
-
-</br>
-<img src="Images/install_image.png" alt="inst_img" style="width: 40%; height: 40%; al"><img>
-
 ### Installation
 
 1. Install all python library:
@@ -129,36 +88,8 @@ Windows:
    ```bash
    py main.py
    ```
-</br>
-On run it will create/update :
-
-  * offsets.py
-  * skin_dict.json
-
-</br>
-If the command line doesn't recognize "py" launcher then you should modify your python installation and add py launcher.
-
-If you have another python version already installed then use:
-  *  ```bash
-     py -3.11 pip install -r requirements.txt
-     ```
-  *  ```bash
-     py -3.11 main.py
-     ```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Will have video for usage when i finish the ui :)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
@@ -167,21 +98,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ABOUTME -->
-## About Me
-
-Name: Asta
-
-  * Age: 17
-  * Intrests: Programming, Games
-  * Languages: Python and Hungarian (:
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -189,20 +105,6 @@ Steam   : [asta](https://steamcommunity.com/id/asta_locsos)
 
 Discord : krist.
 Project Link: [https://github.com/F4sta/asta_SkinChanger](https://github.com/F4sta/asta_SkinChanger)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Cazz's Video - C++ Skin changer](https://choosealicense.com)
-* [Cazz's Github](https://github.com/cazzwastaken)
-* [Othneildrew's template](https://github.com/othneildrew/Best-README-Template)
-* [DearPyGui official Guide Video](https://youtube.com/playlist?list=PLcqt7R3y3elGh7zoj1-oyygzTh9j81hKV)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
